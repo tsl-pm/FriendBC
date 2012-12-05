@@ -8,7 +8,10 @@ class AuthController < ApplicationController
       response = open(url).read
       access_token = response.split('&').first.split('=').last
             
-      @current_user.facebook_access_token = access_token            
+      @current_user.facebook_access_token = access_token
+      
+      @current_user.facebook_id = JSON.parse(open("https://graph.facebook.com/me?access_token=#{access_token}").read)["id"]
+            
       @current_user.save
       
       redirect_to root_url, :notice => 'Facebook authorization successful.'
