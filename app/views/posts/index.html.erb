@@ -20,7 +20,7 @@
     <td><%= post.message %></td>
     <td><%= time_ago_in_words post.created_time %> ago</td>
     <td><%= post.likes %></td>
-    <td><%= link_to "Video", post.link, :target => '_blank' %></td>
+    <td><%= link_to image_tag(post.picture, :size => '130x72'), post.link, :target => '_blank' %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

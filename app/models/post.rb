@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :created_time, :facebook_id, :from_id, :from_name, :likes, :link, :message, :user_id, :type, :likes_hash, :comments_hash
+  attr_accessible :created_time, :facebook_id, :from_id, :from_name, :likes, :link, :message, :user_id, :type, :likes_hash, :comments_hash, :picture
   attr_accessor :type, :comments_hash
   
   belongs_to :user

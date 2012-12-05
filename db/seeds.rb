@@ -20,6 +20,7 @@ User.find_each do |user|
                         :from_name => post["from"]["name"], 
                         :link => post["link"], 
                         :message => post["message"],
+                        :picture => post["picture"],
                         :type => post["type"], 
                         :likes_hash => post["likes"], 
                         :comments_hash => post["comments"]
