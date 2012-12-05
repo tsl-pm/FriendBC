@@ -1,2 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post["from"]["name"] %> said, "<%= post["message"] %>" <%= time_ago_in_words post["created_time"] %> ago.</li>
+  <% end %>
+</ul>
