@@ -1,12 +1,12 @@
 <ul>
   <% @posts_with_videos.each do |post| %>
     <li>
-      <p><%= post["from"]["name"] %> said, "<%= link_to post["message"], post["link"], :target => '_blank' %>" <%= time_ago_in_words post["created_time"] %> ago.</p>
+      <p><%= image_tag "https://graph.facebook.com/#{post["from"]["id"]}/picture" %> <%= post["from"]["name"] %> said, "<%= link_to post["message"], post["link"], :target => '_blank' %>" <%= time_ago_in_words post["created_time"] %> ago.</p>
       <% if post["comments"] && post["comments"]["data"] %>
         <ul>
           <% post["comments"]["data"].each do |comment| %>
             <li>
-              <p><%= comment["from"]["name"] %> said, "<%= comment["message"] %>" <%= time_ago_in_words comment["created_time"] %> ago.</p>
+              <p><%= image_tag "https://graph.facebook.com/#{comment["from"]["id"]}/picture" %> <%= comment["from"]["name"] %> said, "<%= comment["message"] %>" <%= time_ago_in_words comment["created_time"] %> ago.</p>
             </li>
           <% end %>
         </ul>
