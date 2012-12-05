@@ -10,7 +10,7 @@
 </p>
 
 <p>
-  <%= @post.created_time %> ago.
+  <%= time_ago_in_words @post.created_time %> ago.
 </p>
 
 <p>
@@ -22,6 +22,22 @@
   <%= link_to "Video", @post.link, :target => '_blank' %>
 </p>
 
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li>
+      <p>
+        <%= image_tag "https://graph.facebook.com/#{comment.from_id}/picture" %>
+        <%= comment.from_name %>
+      </p>
+      <p>
+        <%= comment.message %>
+      </p>
+      <p>
+        <%= time_ago_in_words comment.created_time %> ago.
+      </p>
+    </li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
