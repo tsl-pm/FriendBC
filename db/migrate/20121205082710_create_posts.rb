@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :from_id
       t.text :message
       t.datetime :created_time
-      t.integer :likes
+      t.integer :likes, :default => 0
       t.integer :user_id
       t.string :link
 
