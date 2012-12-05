@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <%= link_to image_tag(@post.picture), @post.link, :target => '_blank' %>
+  <iframe width="560" height="315" src="http://www.youtube.com/embed/<%= @post.link.split('=').last %>" frameborder="0" allowfullscreen></iframe>
 </p>
 
 <ul>

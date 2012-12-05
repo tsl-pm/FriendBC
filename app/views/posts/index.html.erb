@@ -1,33 +1,16 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th>From</th>
-    <th>Message</th>
-    <th>Created time</th>
-    <th>Likes</th>
-    <th>Link</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= image_tag "https://graph.facebook.com/#{post.from_id}/picture" %></td>
-    <td><%= post.from_name %></td>
-    <td><%= post.message %></td>
-    <td><%= time_ago_in_words post.created_time %> ago</td>
-    <td><%= post.likes %></td>
-    <td><%= link_to image_tag(post.picture, :size => '130x72'), post.link, :target => '_blank' %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+<div style="overflow-x: scroll">
+  <table>
+    <tr>
+      <% @posts.each do |post| %>
+      <td>
+        <%= image_tag "https://graph.facebook.com/#{post.from_id}/picture" %>
+        <%= post.from_name %>
+        <%= post.message %>
+        <%= time_ago_in_words post.created_time %> ago
+        <%= post.likes %>
+        <%= link_to image_tag(post.picture, :size => '130x72'), post, :target => '_blank' %>
+      </td>
+      <% end %>
+    </tr>
+  </table>
+</div>
