@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def authorize_user
     if @current_user.nil?
-      redirect_to root_url, :notice => 'Please sign in first.'
+      redirect_to new_session_url, :notice => 'Please sign in first.'
     else
       @user = User.find_by_id(params[:id])
       if @user.nil? || @user.id != @current_user.id

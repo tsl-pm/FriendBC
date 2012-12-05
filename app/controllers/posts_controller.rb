@@ -1,8 +1,16 @@
 class PostsController < ApplicationController
+  before_filter :authorize_user
+  
+  def authorize_user
+    if @current_user.nil?
+      redirect_to new_session_url, :notice => 'Please sign in first.'
+    end
+  end
+  
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = @current_user.posts
 
     respond_to do |format|
       format.html # index.html.erb
