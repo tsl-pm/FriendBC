@@ -18,6 +18,11 @@ User.find_each do |user|
         p = user.posts.build :created_time => post["created_time"], :facebook_id => post["id"], :from_id => post["from"]["id"], :from_name => post["from"]["name"], :link => post["link"], :message => post["message"]
         p.likes = post["likes"]["count"] if post["likes"]
         p.save
+        if post["comments"] && post["comments"]["data"]
+          post["comments"]["data"].each do |comment|
+            p.comments.create :created_time => comment["created_time"], :facebook_id => comment["id"], :from_id => comment["from"]["id"], :from_name => comment["from"]["name"], :message => comment["message"]
+          end
+        end
       end
     end
   end
