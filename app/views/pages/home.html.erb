@@ -1,5 +1,5 @@
 <ul>
-  <% @posts.each do |post| %>
-    <li><%= post["from"]["name"] %> said, "<%= post["message"] %>" <%= time_ago_in_words post["created_time"] %> ago.</li>
+  <% @posts_with_videos.each do |post| %>
+    <li><%= post["from"]["name"] %> said, "<%= link_to post["message"], post["link"], :target => '_blank' %>" <%= time_ago_in_words post["created_time"] %> ago.</li>
   <% end %>
 </ul>
