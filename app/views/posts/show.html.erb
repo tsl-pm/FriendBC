@@ -1,43 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Facebook:</b>
-  <%= @post.facebook_id %>
-</p>
-
-<p>
-  <b>From name:</b>
+  <%= image_tag "https://graph.facebook.com/#{@post.from_id}/picture" %>
   <%= @post.from_name %>
 </p>
 
 <p>
-  <b>From:</b>
-  <%= @post.from_id %>
-</p>
-
-<p>
-  <b>Message:</b>
   <%= @post.message %>
 </p>
 
 <p>
-  <b>Created time:</b>
-  <%= @post.created_time %>
+  <%= @post.created_time %> ago.
 </p>
 
 <p>
-  <b>Likes:</b>
-  <%= @post.likes %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user_id %>
+  <%= @post.likes %> likes.
 </p>
 
 <p>
   <b>Link:</b>
-  <%= @post.link %>
+  <%= link_to "Video", @post.link, :target => '_blank' %>
 </p>
 
 
