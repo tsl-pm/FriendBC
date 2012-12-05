@@ -1,4 +1,8 @@
 FriendBC::Application.routes.draw do
+  resources :comments
+
+  resources :posts
+
   get 'auth/facebook'
   
   resources :users
