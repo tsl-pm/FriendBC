@@ -2,13 +2,11 @@
 
 <table>
   <tr>
-    <th>Facebook</th>
-    <th>From name</th>
+    <th></th>
     <th>From</th>
     <th>Message</th>
     <th>Created time</th>
     <th>Likes</th>
-    <th>User</th>
     <th>Link</th>
     <th></th>
     <th></th>
@@ -17,14 +15,12 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.facebook_id %></td>
+    <td><%= image_tag "https://graph.facebook.com/#{post.from_id}/picture" %></td>
     <td><%= post.from_name %></td>
-    <td><%= post.from_id %></td>
     <td><%= post.message %></td>
-    <td><%= post.created_time %></td>
+    <td><%= time_ago_in_words post.created_time %> ago</td>
     <td><%= post.likes %></td>
-    <td><%= post.user_id %></td>
-    <td><%= post.link %></td>
+    <td><%= link_to "Video", post.link, :target => '_blank' %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
