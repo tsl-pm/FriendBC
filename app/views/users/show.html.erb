@@ -3,5 +3,11 @@
   <%= @user.email %>
 </p>
 
+<p>Connect services:</p>
+<ul>
+  <%= link_to 'Facebook', '#' %>
+</ul>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
