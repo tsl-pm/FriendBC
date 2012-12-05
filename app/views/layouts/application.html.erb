@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1><%= link_to 'FriendBC', root_url %></h1>
+    <nav>
+      <% if @current_user.present? %>
+        <%= link_to 'Sign Out', session_url, :method => 'delete' %>
+      <% else %>
+        <%= link_to 'Sign Up', new_user_url %>
+        |
+        <%= link_to 'Sign In', new_session_url %>
+        <%= form_tag session_url do %>
+          <%= text_field_tag :email, nil, :placeholder => 'Email' %>
+          <%= password_field_tag :password, nil, :placeholder => 'Password'%>
 
-<%= yield %>
+          <%= submit_tag 'Sign In' %>
+        <% end %>
+      <% end %>
+    </nav>
+  </header>
+  
+  <p id="notice"><%= notice %></p>
+
+  <%= yield %>
 
 </body>
 </html>
