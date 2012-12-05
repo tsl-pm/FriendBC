@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class AuthController < ApplicationController
   def facebook
     if code = params[:code]
