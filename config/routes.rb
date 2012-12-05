@@ -9,7 +9,5 @@ FriendBC::Application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
 
-  get "pages/home"
-
-  root :to => 'Pages#home'
+  root :to => 'Posts#index'
 end
